@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import MoveList from './MoveList';
+import 'antd/dist/antd.css';
+import { Layout } from 'antd';
 import './App.css';
+import Logo from './Logo.png';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const { Header, Content, Footer } = Layout;
+
+export class App extends Component {
+  render() {
+    return (
+      <Layout className="layout">
+        <Header className="header">
+          <img className="logo" src={Logo} alt="logo"/>
+        </Header>
+        <Content className="content" style={{ padding: '0 50px' }}>
+          <div className="list">
+            <MoveList/>
+          </div>  
+        
+        </Content>
+        <Footer className="footer" style={{ textAlign: 'center' }}></Footer>
+      </Layout>
+    )
+  }
 }
 
-export default App;
+export default App
