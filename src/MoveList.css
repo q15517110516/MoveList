@@ -1,0 +1,16 @@
+.movies {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.posters {
+    text-align: center;
+    margin: 20px;
+    width: 238px;
+}
+
+.movie-title {
+    margin: 10px 0;
+}
