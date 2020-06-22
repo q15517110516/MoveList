@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import {BrowserRouter} from 'react-router-dom';
+import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Home from './Home';
+import Home from './Home/Home';
+import Favorites from './Favorites/Favorites';
+import Cart from './Cart/Cart';
+
 
 const BasicRouter = () => (
-    <BrowserRouter>
-        <Switch>
-            <Route exact path="/" component={Home}/>
-        </Switch>
-    </BrowserRouter>
+    <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/Favorites" component={Favorites}/>
+        <Route exact path="/Cart" component={Cart}/>
+    </Switch>
 )
 
 export default BasicRouter;

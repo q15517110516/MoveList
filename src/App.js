@@ -1,13 +1,42 @@
 import React, { Component } from 'react';
 import Router from './Router';
+import { Layout } from 'antd';
+import { NavLink } from "react-router-dom";
+import Logo from './Logo.png';
+import './App.css';
+import "antd/dist/antd.css";
 
+
+
+const { Header, Content, Footer } = Layout;
 
 export class App extends Component {
   render() {
     return (
-      <div>
-        <Router/>
-      </div>
+      <Layout className="layout">
+        <Header className="header">
+            <NavLink to="/">
+                <img className="logo" src={Logo} alt="logo"/>
+            </NavLink>
+            <div className="nav">
+                <NavLink className="navlink" to="/">
+                    <span>Home</span>
+                </NavLink>
+                <NavLink className="navlink" to="/Favorites">
+                    <span>Favorites</span>
+                </NavLink>
+                <NavLink className="navlink" to="/Cart">
+                    <span>Cart</span>
+                </NavLink>
+            </div>
+        </Header>
+        <Content className="content" style={{ padding: '0 50px'}}>
+          <Router/>
+        </Content>
+        <Footer className="footer" style={{ textAlign: 'center' }}></Footer>
+
+      </Layout>
+      
     )
   }
 }
