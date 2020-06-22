@@ -8,6 +8,7 @@ import "antd/dist/antd.css";
 
 
 
+
 const { Header, Content, Footer } = Layout;
 
 export class App extends Component {
@@ -20,13 +21,13 @@ export class App extends Component {
             </NavLink>
             <div className="nav">
                 <NavLink className="navlink" to="/">
-                    <span>Home</span>
+                    Home
                 </NavLink>
                 <NavLink className="navlink" to="/Favorites">
-                    <span>Favorites</span>
+                    Favorites
                 </NavLink>
                 <NavLink className="navlink" to="/Cart">
-                    <span>Cart</span>
+                    Cart
                 </NavLink>
             </div>
         </Header>

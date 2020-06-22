@@ -3,14 +3,42 @@
     width: 100%;
     flex-wrap: wrap;
     margin: 20px;
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 .posters {
     text-align: center;
     margin: 20px;
     width: 238px;
+    position: relative;
 }
+
+
+/* .movie-img {
+    position: relative;
+    padding: 0;
+} */
+
+.mask {
+    /* display: block; */
+    position: absolute;
+    color: white;
+    top: 0px;
+    left: 0;
+    width: 238px;
+    height: 340px;
+    background: rgba(113, 198, 32, 0.9);
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+}
+
+.mask {
+    display: none;
+}
+
+
+/* .poster */
 
 .movie-title {
     margin: 10px 0;

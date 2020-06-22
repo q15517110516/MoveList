@@ -1,4 +1,4 @@
-const moves = [
+const movies = [
     {
         'name': 'The Shawshank Redemption',
         'id': '1',
@@ -157,4 +157,4 @@ const moves = [
     
 ]
 
-export default moves;
+export default movies;
