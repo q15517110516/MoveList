@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export class Favorites extends Component {
+export class Mask extends Component {
     constructor(){
         super();
-
+        this.state = {
+            hover: false
+        }
     }
     render() {
-        const movie = this.props.movie;
-        console.log(movie)
         return (
             <div>
                 
@@ -16,4 +16,4 @@ export class Favorites extends Component {
     }
 }
 
-export default Favorites
+export default Mask
