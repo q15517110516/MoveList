@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import Movies from '../Movies';
+import Movies from '../Movies-img/Movies';
 import { Typography } from "antd";
 import "antd/dist/antd.css";
 import './Home.css';
 import $ from 'jquery';
+import Favorites from '../Favorites/Favorites';
+import copy from 'copy-to-clipboard';
+import { OmitProps } from 'antd/lib/transfer/ListBody';
 
 const { Title } = Typography;
 
@@ -11,45 +14,32 @@ export class Home extends Component {
     constructor(){
         super();
         this.state={
-            favorite: "",
-            message: "12345",
+            favorite: [],
             selectMovie: Movies[0],
-            visible: false
         }
     }
 
-    changeMovie = (id) => {
+
+    changeMovie = (movie) => {
         this.setState({
-            selectMovie: id
+            selectMovie: movie
         });
-        console.log(id);
+        // console.log(movie);
     }
 
-    
-    showButtons = (visible) => {
-        this.setState({
-            visible
-        })
-        console.log(visible)
-    }
-
-    // handleEvent = (event) => {
-    //     if(event.type === "mouseenter"){
-    //         this.setState({
-                
-    //         });
-            
-            
-    //     }
-    //     else{
-    //         this.setState({
-    //             message: "12345"
-    //         });
-    //     }
+    addToFavorites = (movie) => {
         
-    // }
+        let favorites = this.state.favorite;
 
-    addToFavorites = () => {
+        favorites.push(movie);
+
+        this.setState({
+            favorite: favorites
+        });
+        
+        console.log(this.state.favorite)
+
+
     }
 
 
@@ -63,19 +53,24 @@ export class Home extends Component {
         //         $(".mask").hide();
         //     });
         // });
+        
     }
 
 
     render() {
+
+        // const movie = this.state.selectMovie;
+        // console.log(this.state.favorite)
+
         return (
             <div className="movies">
                 {Movies.map(movie => (
                     <div className="posters" key={movie.id}>
-                        <img className="movie-img" id={movie.id} src={movie.img} alt="posters"width={238} height={340} onMouseOver={() => {this.changeMovie(movie.id); this.showButtons(true)}} onMouseOut={() => this.showButtons(false)}/>
-                        <div className="mask" style={(this.state.visible && this.state.id == movie.id) ? {display: "block"} : {display: "none"}}>{movie.id}</div>
-                        
+                        <img className="movie-img" id={movie.id} src={movie.img} alt="posters"width={238} height={340} onMouseOver={() => this.changeMovie(movie)}/>
                         <div className="movie-title">
                             <Title level={4} style={{color: "white"}}>{movie.name}</Title>
+                            <button onClick={() => this.addToFavorites(movie)}>Click</button>
+                            
                         </div>
                     </div>
                 ))}
