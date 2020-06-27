@@ -14,7 +14,8 @@ export default function(state = initialState, action){
         case ADD_TO_FAVORITES:
             if(existedMovie){
                 return {
-                    favorite: [addedMovie]
+                    ...state,
+                    favorite: [...state.favorite]
                 }
             }
             else{
