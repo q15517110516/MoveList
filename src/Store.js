@@ -4,6 +4,6 @@ import reducer from './Reducers/Reducer';
 
 // const initialState = {};
 
-const store = createStore(reducer)
+const store = createStore(reducer);
 
 export default store;
