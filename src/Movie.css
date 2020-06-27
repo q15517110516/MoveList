@@ -1,0 +1,19 @@
+.movies {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 20px;
+    margin-top: 150px;
+    min-height: 100vh;
+}
+
+.posters {
+    text-align: center;
+    margin: 20px;
+    width: 238px;
+    position: relative;
+}
+
+.movie-title {
+    margin: 10px 0;
+}
