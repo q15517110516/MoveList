@@ -3,7 +3,7 @@ import { Typography, Button } from "antd";
 import "antd/dist/antd.css";
 import '../Movie.css';
 import { connect } from 'react-redux';
-import { addToFavorites } from '../Actions/Actions';
+import { addToFavorites, addToCart } from '../Actions/Actions';
 
 
 const { Title } = Typography;
@@ -18,20 +18,24 @@ export class Home extends Component {
     }
 
 
-    handleClick = (id) => {
+    addToFavorites = (id) => {
         this.props.addToFavorites(id)
     }
 
+    addToCart = (id) => {
+        this.props.addToCart(id)
+    }
 
     render() {
         
         let movieList = this.props.movies.map(movie => {
             return (
                 <div className="posters" key={movie.id}>
-                    <img className="movie-img" id={movie.id} src={movie.img} alt="posters"width={238} height={340}/>
+                    <img className="movie-img" src={movie.img} alt="posters"width={238} height={340}/>
                     <div className="movie-title">
                         <Title level={4} style={{color: "white"}}>{movie.name}</Title>
-                        <Button type="primary" onClick={() => this.handleClick(movie.id)}>{this.state.btnLabel}</Button>
+                        <Button type="primary" onClick={() => this.addToFavorites(movie.id)}>ADD1</Button>
+                        <Button type="primary" onClick={() => this.addToCart(movie.id)}>ADD2</Button>
                     </div>
                 </div>
             )
@@ -54,7 +58,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addToFavorites: (id) => {dispatch(addToFavorites(id))}
+        addToFavorites: (id) => {dispatch(addToFavorites(id))},
+        addToCart: (id) => {dispatch(addToCart(id))}
     }
 }
 
