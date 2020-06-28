@@ -16,20 +16,20 @@ export class App extends Component {
     return (
       <Layout className="layout">
         <Header className="header">
-            <NavLink to="/">
-                <img className="logo" src={Logo} alt="logo"/>
+          <NavLink to="/">
+            <img className="logo" src={Logo} alt="logo"/>
+          </NavLink>
+          <div className="nav">
+            <NavLink className="navlink" to="/">
+              Home
             </NavLink>
-            <div className="nav">
-                <NavLink className="navlink" to="/">
-                    Home
-                </NavLink>
-                <NavLink className="navlink" to="/Favorites">
-                    Favorites
-                </NavLink>
-                <NavLink className="navlink" to="/Cart">
-                    Cart
-                </NavLink>
-            </div>
+            <NavLink className="navlink" to="/Favorites">
+              Favorites
+            </NavLink>
+            <NavLink className="navlink" to="/Cart">
+              Cart
+            </NavLink>
+          </div>
         </Header>
         <Content className="content" style={{ padding: '0 50px'}}>
           <Router/>

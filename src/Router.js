@@ -1,11 +1,10 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Home from './Home/Home';
 import Favorites from './Favorites/Favorites';
 import Cart from './Cart/Cart';
 
-
-const BasicRouter = () => (
+const Router = () => (
     <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/Favorites" component={Favorites}/>
@@ -13,4 +12,4 @@ const BasicRouter = () => (
     </Switch>
 )
 
-export default BasicRouter;
+export default Router
