@@ -1,6 +1,8 @@
 import { ADD_TO_FAVORITES } from './ActionTypes';
 import { ADD_TO_CART } from './ActionTypes';
 import { REMOVE_MOVIE } from './ActionTypes';
+import { REMOVE_FAVORITES } from './ActionTypes';
+
 
 
 
@@ -18,9 +20,18 @@ export const addToCart = (id) => {
     };
 };
 
+export const removeFavorites = (id) => {
+    return {
+        type: REMOVE_FAVORITES,
+        id
+    };
+};
+
 export const removeMovie = (id) => {
     return {
         type: REMOVE_MOVIE,
         id
     };
 };
+
+

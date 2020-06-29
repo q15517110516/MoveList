@@ -1,5 +1,9 @@
 import Movies from '../AllMovies';
-import { ADD_TO_FAVORITES, ADD_TO_CART, REMOVE_MOVIE } from '../Actions/ActionTypes'
+import { ADD_TO_FAVORITES, 
+        ADD_TO_CART, 
+        REMOVE_MOVIE,
+        REMOVE_FAVORITES
+        } from '../Actions/ActionTypes'
 
 
 const initialState = {
@@ -54,6 +58,12 @@ export default function(state = initialState, action){
                     totalPrice: newTotalPrice
                 }
             };
+
+        case REMOVE_FAVORITES:
+            return {
+                ...state,
+                favorite: newFavorite
+            }
 
         // Remove movie from Cart
         case REMOVE_MOVIE:
