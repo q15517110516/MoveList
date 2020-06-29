@@ -7,8 +7,8 @@ import { Typography,
 import './Cart.css';
 import { removeMovie } from '../Actions/Actions';
 import {
-    DeleteOutlined
-    } from '@ant-design/icons';
+        DeleteOutlined
+        } from '@ant-design/icons';
 
 
 const { Title } = Typography;
@@ -18,8 +18,7 @@ export class Cart extends Component {
     constructor(){
         super();
         this.state = {
-            selectedRowKeys: [],
-            totalPrice: 0,
+            // selectedRowKeys: [],
             columns: [
                 {
                     title: 'Movie',
@@ -46,20 +45,14 @@ export class Cart extends Component {
     }
 
     
-    onSelectChange = (selectedRowKeys, selectedMovie) => {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
-        // console.log(selectedMovie.price);
-
-        this.setState({ 
-            selectedRowKeys,
-        })
-    }
-
-    // getTotalPrice = (selectedMovie) => {
-    //     this.setState({
-    //         totalPrice: this.state.totalPrice + selectedMovie.price
+    // onSelectChange = (selectedRowKeys) => {
+    //     console.log('selectedRowKeys changed: ', selectedRowKeys);
+    //     this.setState({ 
+    //         selectedRowKeys,
+            
     //     })
     // }
+
 
     removeMovie = (id) => {
         this.props.removeMovie(id)
@@ -75,22 +68,23 @@ export class Cart extends Component {
         };
         
 
-        const { selectedRowKeys, columns, totalPrice } = this.state;
-        const rowSelection = {
-            selectedRowKeys,
-            onChange: this.onSelectChange,
-            // onSelect: this.getTotalPrice,
-        };
-        const hasSelected = selectedRowKeys.length > 0;
+        const { selectedRowKeys, columns } = this.state;
+
+        // const rowSelection = {
+        //     selectedRowKeys,
+        //     onChange: this.onSelectChange,
+        // };
+
+        // const hasSelected = selectedRowKeys.length > 0;
 
 
         let cartMovies = this.props.cart.length ? (
             <div className="cartTable">
                 <Table
-                    rowSelection={{
-                        type: 'checkbox',
-                        ...rowSelection
-                    }} 
+                    // rowSelection={{
+                    //     type: 'checkbox',
+                    //     ...rowSelection
+                    // }} 
                     pagination={false} 
                     scroll={{ y: 1000 }} 
                     columns={columns} 
@@ -98,10 +92,17 @@ export class Cart extends Component {
                 />
                 <span>Total: {(this.props.totalPrice).toFixed(2)}</span>
                 
-                <Button className="checkoutBtn" type="primary" disabled={!hasSelected} style={{ marginTop: 16 }}>Check Out</Button>
-                <span >
+                <Button 
+                    className="checkoutBtn" 
+                    type="primary" 
+                    // disabled={!hasSelected} 
+                    style={{ marginTop: 16 }}
+                >
+                    Check Out
+                </Button>
+                {/* <span >
                     {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
-                </span>
+                </span> */}
             </div>
 
         ) : (
