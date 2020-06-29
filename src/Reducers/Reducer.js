@@ -7,18 +7,22 @@ const initialState = {
     favorite: [],
     cart: [],
     totalPrice: 0
-
-}
+};
 
 export default function(state = initialState, action){
     let addedMovie = state.movies.find(movie => movie.id === action.id);
-    let existedMovie = state.favorite.find(movie => action.id === movie.id);
-    let removeFavorite = state.favorite.filter(movie => action.id !== movie.id);
 
+    // Favorite
+    let existedMovie = state.favorite.find(movie => action.id === movie.id);
+    let newFavorite = state.favorite.filter(movie => action.id !== movie.id);
+
+    // Cart
     let cartMovie = state.cart.find(movie => action.id === movie.id);
-    let removeCart = state.cart.filter(movie => action.id !== movie.id);
+    let newCart = state.cart.filter(movie => action.id !== movie.id);
     
     switch(action.type){
+
+        // Add to Favorite
         case ADD_TO_FAVORITES:
             if(existedMovie){
                 return {
@@ -32,25 +36,34 @@ export default function(state = initialState, action){
                     favorite: [...state.favorite, addedMovie]
                 }
             };
+
+        // Add to Cart
         case ADD_TO_CART:
             if(cartMovie){
                 return {
                     ...state,
                     cart: [...state.cart],
-                    // totalPrice: state.totalPrice + cartMovie.price
+                    totalPrice: state.totalPrice + addedMovie.price
                 }
             }
             else{
+                let newTotalPrice = state.totalPrice + addedMovie.price;
                 return {
                     ...state,
-                    cart: [...state.cart, addedMovie]
+                    cart: [...state.cart, addedMovie],
+                    totalPrice: newTotalPrice
                 }
             };
+
+        // Remove movie from Cart
         case REMOVE_MOVIE:
+            let newTotalPrice = state.totalPrice - (cartMovie.price);
             return {
                 ...state,
-                cart: removeCart
+                cart: newCart,
+                totalPrice: newTotalPrice
             }
+
         default:
             return state;
     }
