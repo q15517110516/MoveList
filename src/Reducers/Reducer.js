@@ -2,7 +2,7 @@ import Movies from '../AllMovies';
 import { ADD_TO_FAVORITES, 
         ADD_TO_CART, 
         REMOVE_MOVIE,
-        REMOVE_FAVORITES
+        REMOVE_FAVORITES,
         } from '../Actions/ActionTypes'
 
 
@@ -10,7 +10,8 @@ const initialState = {
     movies: Movies,
     favorite: [],
     cart: [],
-    totalPrice: 0
+    totalPrice: 0,
+
 };
 
 export default function(state = initialState, action){
@@ -23,7 +24,7 @@ export default function(state = initialState, action){
     // Cart
     let cartMovie = state.cart.find(movie => action.id === movie.id);
     let newCart = state.cart.filter(movie => action.id !== movie.id);
-    
+
     switch(action.type){
 
         // Add to Favorite
@@ -39,7 +40,7 @@ export default function(state = initialState, action){
                     ...state,
                     favorite: [...state.favorite, addedMovie]
                 }
-            };
+            }
 
         // Add to Cart
         case ADD_TO_CART:
@@ -57,7 +58,7 @@ export default function(state = initialState, action){
                     cart: [...state.cart, addedMovie],
                     totalPrice: newTotalPrice
                 }
-            };
+            }
 
         case REMOVE_FAVORITES:
             return {

@@ -3,7 +3,6 @@ import "antd/dist/antd.css";
 import { connect } from 'react-redux';
 import { Typography, Button } from "antd";
 import '../Movie.css';
-import 'bootstrap/dist/css/bootstrap.css';
 import { removeFavorites } from '../Actions/Actions';
 
 
@@ -33,7 +32,6 @@ export class Favorites extends Component {
                                 <Button 
                                     className="remove" 
                                     type="primary" 
-                                    // style={{ marginTop: 16 }}
                                     onClick={() => this.removeFavorites(movie.id)}
                                 >
                                     Remove

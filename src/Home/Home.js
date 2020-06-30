@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Typography, Button } from "antd";
 import "antd/dist/antd.css";
-import 'bootstrap/dist/css/bootstrap.css';
 import '../Movie.css';
 import { connect } from 'react-redux';
 import { addToFavorites, 
@@ -35,8 +34,23 @@ export class Home extends Component {
                             height={340}
                         />
                         <div className="card-img-overlay">
-                            <Button type="primary" onClick={() => this.addToFavorites(movie.id)}>ADD1</Button>
-                            <Button type="primary" onClick={() => this.addToCart(movie.id)}>ADD2</Button>
+                            <Button 
+                                className="add" 
+                                ghost
+                                shape="round"
+                                onClick={() => this.addToFavorites(movie.id)}
+                            >
+                                Add To Favorite
+                            </Button>
+                            <Button 
+                                className="add" 
+                                ghost
+                                shape="round"
+
+                                onClick={() => this.addToCart(movie.id)}
+                            >
+                                Add To Cart
+                            </Button>
                         </div>
                     </div>
                     <div className="movie-title">
