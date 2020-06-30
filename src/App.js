@@ -29,6 +29,9 @@ export class App extends Component {
             <NavLink className="navlink" to="/Cart">
               Cart
             </NavLink>
+            <NavLink className="navlink" to="/Review">
+              Review
+            </NavLink>
           </div>
         </Header>
         <Content className="content" style={{ padding: '0 50px'}}>
