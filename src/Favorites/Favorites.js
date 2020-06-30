@@ -3,14 +3,13 @@ import "antd/dist/antd.css";
 import { connect } from 'react-redux';
 import { Typography, Button } from "antd";
 import '../Movie.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import { removeFavorites } from '../Actions/Actions';
 
 
 const { Title } = Typography;
 
-
 export class Favorites extends Component {
-    
     
     removeFavorites = (id) => {
         this.props.removeFavorites(id)
@@ -22,20 +21,30 @@ export class Favorites extends Component {
             this.props.favorite.map(movie => {
                 return (
                     <div className="posters" key={movie.id}>
-                        <img className="movie-img" src={movie.img} alt="posters" width={238} height={340}/>
+                        <div className="posters-container">
+                            <img 
+                                className="movie-img" 
+                                src={movie.img} 
+                                alt="posters" 
+                                width={238} 
+                                height={340}
+                            />
+                            <div className="card-img-overlay">
+                                <Button 
+                                    className="remove" 
+                                    type="primary" 
+                                    // style={{ marginTop: 16 }}
+                                    onClick={() => this.removeFavorites(movie.id)}
+                                >
+                                    Remove
+                                </Button>
+                            </div>
+                            
+                        </div>
+                        
                         <div className="movie-title">
                             <Title level={4} style={{color: "white"}}>{movie.name}</Title>
                         </div>
-                    
-                        <Button 
-                            className="remove" 
-                            type="primary" 
-                            // disabled={!hasSelected} 
-                            style={{ marginTop: 16 }}
-                            onClick={() => this.removeFavorites(movie.id)}
-                        >
-                            Remove
-                        </Button>
                     </div>
                 )
 
