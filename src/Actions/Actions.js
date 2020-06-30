@@ -5,7 +5,6 @@ import { REMOVE_FAVORITES } from './ActionTypes';
 
 
 
-
 export const addToFavorites = (id) => {
     return {
         type: ADD_TO_FAVORITES,
@@ -33,5 +32,4 @@ export const removeMovie = (id) => {
         id
     };
 };
-
 
