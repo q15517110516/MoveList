@@ -43,9 +43,25 @@
     height: 50px;
     margin: 10px;
     font-size: 20px;
-    color: white;
-    background-color: #515151;
+    color: rgb(216, 216, 216);
+    border-color: rgb(216, 216, 216);
+    /* background-color: #515151; */
     padding: 0 20px;
+}
+
+.add:hover {
+    color: white;
+    border-color: white;
+}
+
+.add:active {
+    color: white;
+    border-color: white;
+}
+
+.add:visited {
+    color: white;
+    border-color: white;
 }
 
 .posters-container:hover .movie-img {
@@ -54,4 +70,8 @@
 
 .posters-container:hover .card-img-overlay {
     opacity: 1;
+}
+
+html {
+    --antd-wave-shadow-color: white;
 }
