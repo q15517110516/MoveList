@@ -10,7 +10,7 @@ const initialState = {
     movies: Movies,
     favorite: [],
     cart: [],
-    totalPrice: 0,
+    totalPrice: 0
 
 };
 
@@ -32,13 +32,13 @@ export default function(state = initialState, action){
             if(existedMovie){
                 return {
                     ...state,
-                    favorite: [...state.favorite]
+                    favorite: [...state.favorite],
                 }
             }
             else{
                 return {
                     ...state,
-                    favorite: [...state.favorite, addedMovie]
+                    favorite: [...state.favorite, addedMovie],
                 }
             }
 

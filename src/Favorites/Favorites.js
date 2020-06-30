@@ -30,8 +30,9 @@ export class Favorites extends Component {
                             />
                             <div className="card-img-overlay">
                                 <Button 
-                                    className="remove" 
-                                    type="primary" 
+                                    className="btn" 
+                                    ghost
+                                    shape="round"
                                     onClick={() => this.removeFavorites(movie.id)}
                                 >
                                     Remove

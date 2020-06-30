@@ -21,7 +21,8 @@ export class Home extends Component {
     }
 
     render() {
-        // const buttons = this.state.isMouseOver ? this.props.movie : null;
+
+        console.log(this.props.isDisabled)
         let movieList = this.props.movies.map(movie => {
             return (
                 <div className="posters" key={movie.id}>
@@ -35,7 +36,7 @@ export class Home extends Component {
                         />
                         <div className="card-img-overlay">
                             <Button 
-                                className="add" 
+                                className="btn" 
                                 ghost
                                 shape="round"
                                 onClick={() => this.addToFavorites(movie.id)}
@@ -43,10 +44,9 @@ export class Home extends Component {
                                 Add To Favorite
                             </Button>
                             <Button 
-                                className="add" 
+                                className="btn" 
                                 ghost
                                 shape="round"
-
                                 onClick={() => this.addToCart(movie.id)}
                             >
                                 Add To Cart
