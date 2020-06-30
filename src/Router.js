@@ -7,8 +7,8 @@ import Cart from './Cart/Cart';
 const Router = () => (
     <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/Favorites" component={Favorites}/>
-        <Route path="/Cart" component={Cart}/>
+        <Route exact path="/Favorites" component={Favorites}/>
+        <Route exact path="/Cart" component={Cart}/>
     </Switch>
 )
 

@@ -20,7 +20,7 @@ export class App extends Component {
             <img className="logo" src={Logo} alt="logo"/>
           </NavLink>
           <div className="nav">
-            <NavLink className="navlink" to="/">
+            <NavLink className="navlink" exact to="/">
               Home
             </NavLink>
             <NavLink className="navlink" to="/Favorites">
