@@ -3,6 +3,7 @@ import { ADD_TO_FAVORITES,
         ADD_TO_CART, 
         REMOVE_MOVIE,
         REMOVE_FAVORITES,
+        CHECK_OUT
         } from '../Actions/ActionTypes'
 
 
@@ -10,7 +11,8 @@ const initialState = {
     movies: Movies,
     favorite: [],
     cart: [],
-    totalPrice: 0
+    totalPrice: 0,
+    myMovies: []
 
 };
 
@@ -24,7 +26,7 @@ export default function(state = initialState, action){
     // Cart
     let cartMovie = state.cart.find(movie => action.id === movie.id);
     let newCart = state.cart.filter(movie => action.id !== movie.id);
-
+    
     switch(action.type){
 
         // Add to Favorite
@@ -74,6 +76,16 @@ export default function(state = initialState, action){
                 cart: newCart,
                 totalPrice: newTotalPrice
             }
+
+        // Check out and move movies in Cart to Review 
+        case CHECK_OUT:
+            
+            return {
+                ...state,
+                myMovies: state.cart,
+                cart: []
+            }
+
 
         default:
             return state;
