@@ -5,7 +5,8 @@ import { Typography,
         Table,
         Button  } from "antd";
 import './Cart.css';
-import { removeMovie } from '../Actions/Actions';
+import { removeMovie,
+        checkOut} from '../Actions/Actions';
 import {
         DeleteOutlined
         } from '@ant-design/icons';
@@ -58,6 +59,10 @@ export class Cart extends Component {
         this.props.removeMovie(id)
     }
 
+    checkOut = (id) => {
+        this.props.checkOut(id)
+    }
+
 
     render() {
 
@@ -97,6 +102,8 @@ export class Cart extends Component {
                     type="primary" 
                     // disabled={!hasSelected} 
                     style={{ marginTop: 16 }}
+                    onClick={() => this.checkOut(this.props.cart)}
+
                 >
                     Check Out
                 </Button>
@@ -126,7 +133,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeMovie: (id) => {dispatch(removeMovie(id))}
+        removeMovie: (id) => {dispatch(removeMovie(id))},
+        checkOut: (movies) => {dispatch(checkOut(movies))}
+        
     }
 }
 
