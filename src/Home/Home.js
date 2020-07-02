@@ -22,7 +22,6 @@ export class Home extends Component {
 
     render() {
 
-        console.log(this.props.isDisabled)
         let movieList = this.props.movies.map(movie => {
             return (
                 <div className="posters" key={movie.id}>
@@ -71,7 +70,8 @@ export class Home extends Component {
 // takes the state in our reducer and pass it as props in our file
 const mapStateToProps = (state) => {
     return {
-        movies: state.movies
+        movies: state.movies,
+        myMovies: state.myMovies
     }
 }
 

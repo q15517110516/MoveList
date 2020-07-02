@@ -12,7 +12,8 @@ const initialState = {
     favorite: [],
     cart: [],
     totalPrice: 0,
-    myMovies: []
+    myMovies: [],
+    // disabled: false //TODO
 
 };
 
@@ -26,7 +27,7 @@ export default function(state = initialState, action){
     // Cart
     let cartMovie = state.cart.find(movie => action.id === movie.id);
     let newCart = state.cart.filter(movie => action.id !== movie.id);
-    
+
     switch(action.type){
 
         // Add to Favorite
@@ -77,15 +78,14 @@ export default function(state = initialState, action){
                 totalPrice: newTotalPrice
             }
 
-        // Check out and move movies in Cart to Review 
+        // Check out and move movies from Cart to Review 
         case CHECK_OUT:
-            
             return {
                 ...state,
                 myMovies: state.cart,
-                cart: []
+                cart: [],
+                
             }
-
 
         default:
             return state;
