@@ -8,10 +8,10 @@ import Review from './Review/Review';
 
 const Router = () => (
     <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/Favorites" component={Favorites}/>
-        <Route exact path="/Cart" component={Cart}/>
-        <Route exact path="/Review" component={Review}/>
+        <Route exact path="/MovieList/" component={Home}/>
+        <Route exact path="/MovieList/Favorites" component={Favorites}/>
+        <Route exact path="/MovieList/Cart" component={Cart}/>
+        <Route exact path="/MovieList/Review" component={Review}/>
 
     </Switch>
 )

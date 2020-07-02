@@ -20,16 +20,16 @@ export class App extends Component {
             <img className="logo" src={Logo} alt="logo"/>
           </NavLink>
           <div className="nav">
-            <NavLink className="navlink" exact to="/">
+            <NavLink className="navlink" exact to="/MovieList//">
               Home
             </NavLink>
-            <NavLink className="navlink" to="/Favorites">
+            <NavLink className="navlink" to="/MovieList//Favorites">
               Favorites
             </NavLink>
-            <NavLink className="navlink" to="/Cart">
+            <NavLink className="navlink" to="/MovieList//Cart">
               Cart
             </NavLink>
-            <NavLink className="navlink" to="/Review">
+            <NavLink className="navlink" to="/MovieList//Review">
               Review
             </NavLink>
           </div>
