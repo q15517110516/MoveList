@@ -59,8 +59,8 @@ export class Cart extends Component {
         this.props.removeMovie(id)
     }
 
-    checkOut = (id) => {
-        this.props.checkOut(id)
+    checkOut = (movies) => {
+        this.props.checkOut(movies)
     }
 
 

@@ -28,7 +28,6 @@ export class Review extends Component {
                                     className="btn" 
                                     ghost
                                     shape="round"
-                                    // onClick={() => this.checkOut(this.props.cart)}
                                 >
                                     Play
                                 </Button>

@@ -28,6 +28,10 @@ export default function(state = initialState, action){
     let cartMovie = state.cart.find(movie => action.id === movie.id);
     let newCart = state.cart.filter(movie => action.id !== movie.id);
 
+    // Review
+    let review = state.cart.find(movie => action.id === movie.id);
+
+
     switch(action.type){
 
         // Add to Favorite
@@ -80,9 +84,10 @@ export default function(state = initialState, action){
 
         // Check out and move movies from Cart to Review 
         case CHECK_OUT:
+
             return {
                 ...state,
-                myMovies: state.cart,
+                myMovies: [...state.cart],
                 cart: [],
                 
             }
